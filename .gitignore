@@ -1,0 +1,34 @@
+# Arquivos gerados por IDEs ou editores de código
+.vscode/
+.idea/
+
+# Arquivos de compilação e cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Arquivo do ambiente virtual (se estiver usando venv)
+venv/
+
+# Arquivos do macOS
+.DS_Store
+
+# Arquivos do Windows
+Thumbs.db
+
+# Arquivos contendo credenciais
+credentials.json
+secret.key
+
+# Arquivos de log
+*.log
+
+# Arquivos de cache
+cache/
+
+# Arquivos de saída
+output/
+
+# Arquivos binários (por exemplo, executáveis)
+*.exe
