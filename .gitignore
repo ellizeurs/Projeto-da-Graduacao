@@ -11,6 +11,9 @@ __pycache__/
 # Arquivo do ambiente virtual (se estiver usando venv)
 venv/
 
+# Arquivos de classes
+classes/
+
 # Arquivos do macOS
 .DS_Store
 
