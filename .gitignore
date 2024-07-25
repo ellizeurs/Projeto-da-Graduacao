@@ -36,3 +36,6 @@ output/
 
 # Arquivos binários (por exemplo, executáveis)
 *.exe
+
+lightning_logs/
+logs/
