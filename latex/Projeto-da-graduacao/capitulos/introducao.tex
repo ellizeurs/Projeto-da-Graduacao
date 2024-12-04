@@ -1,0 +1,64 @@
+\paragraph{} As séries temporais são conjuntos de observações coletadas em intervalos regulares e com dependências adjacentes, refletindo o comportamento histórico de um evento ao longo do tempo \cite{box2016time}. A previsão dessas séries é importante para antecipar eventos futuros, como preços de ações e demanda de energia \cite{hyndman2018forecasting, Yasin23}. No entanto, muitas séries temporais não são sistemas invariantes no tempo, sendo influenciadas por mudanças estruturais e fatores externos \cite{maniezo2022serie}. Por isso, modelos avançados são necessários para lidar com essas variações e fatores dinâmicos, buscando uma maior consistência e acurácia nas previsões.
+\paragraph{} A previsão de preços de biodiesel é desafiadora devido às influências econômicas, ambientais e políticas que afetam esse mercado emergente, tornando essencial o uso de técnicas avançadas, como modelos estatísticos e redes neurais, para obter previsões com baixo erro \cite{alves2022desafios}. Além disso, a importância das energias renováveis e biocombustíveis, como o biodiesel, está crescendo na busca por soluções sustentáveis e na desaceleração das mudanças climáticas \cite{energia_renovavel}. A adoção dessas fontes de energia reduz a dependência de combustíveis fósseis e promove uma economia de baixo carbono, destacando a necessidade de previsões de preços confiáveis para apoiar a tomada de decisões no setor.
+\paragraph{} Redes neurais são eficazes na previsão de séries temporais porque podem identificar relações não lineares e lineares \cite{haykin2009neural}, adaptando-se a novos dados e mudanças no mercado. Esse potencial permite uma tomada de decisão mais informada para diversas partes interessadas, incluindo produtores e consumidores, contribuindo para uma gestão mais eficiente de estoques e planejamento estratégico.
+\paragraph{} Desta forma, a aplicação de modelos avançados de redes neurais na previsão de preços de biodiesel é uma abordagem promissora para melhorar a precisão das previsões. Neste contexto, este trabalho propõe o desenvolvimento de um modelo de previsão de preços de biodiesel utilizando redes neurais, de modo a fornecer uma ferramenta confiável e precisa para antecipar as variações de preços nesse mercado em constante evolução.
+
+\section{Tema e Delimitação}
+
+\paragraph{} O tema deste trabalho é a previsão da série temporal de Preços do Biodiesel \cite{biodiesel24}.
+\paragraph{} Neste sentido, o problema a ser resolvido é o treinamento do modelo com uma série temporal curta de preços de Biodiesel e as séries correlatas do Óleo de Soja, a fim de prever os preços futuros com precisão e confiabilidade.
+\paragraph{} Este trabalho se limitará a uma previsão por um período curto do preço do biodiesel no Brasil, aproximadamente 3 meses. Por se tratar de um mercado em desenvolvimento ainda não há dados suficientes para uma previsão mais longa. Serão utilizados conjuntos de dados públicos do Biodiesel no Brasil \cite{biodiesel24} e do Óleo de Soja no Banco Mundial \cite{worldbank2024}.
+
+
+\section{Motivação e Justificativa}
+
+\paragraph{} O aumento das concentrações de \(CO_2\) na atmosfera é um dos principais fatores responsáveis pelas mudanças climáticas e pelo aquecimento global. As emissões de gases de efeito estufa provenientes da queima de combustíveis fósseis têm impactos graves no meio ambiente, incluindo o derretimento das calotas polares, o aumento do nível do mar e eventos climáticos extremos. Diante desse cenário, a busca por alternativas sustentáveis e menos poluentes, como os biocombustíveis, torna-se essencial para mitigar os efeitos adversos dessas emissões e promover uma transição para fontes de energia mais limpas.
+\paragraph{} O uso de um biocombustível pode contribuir para a redução das emissões de \(CO_2\). A previsão de preços de biodiesel apresenta um desafio complexo devido ao seu comportamento dinâmico e às influências de fatores econômicos, ambientais e políticos. O mercado de biodiesel, ainda em desenvolvimento, é sujeito a variáveis que afetam tanto a oferta quanto a demanda, além de possuir poucos dados para treinamento, tornando as previsões de preços uma tarefa complexa.
+\paragraph{} As redes neurais oferecem uma abordagem eficaz e robusta para enfrentar esses problemas. Ao analisar grandes volumes de dados e identificar padrões complexos, essas técnicas avançadas podem fornecer previsões mais precisas e confiáveis. A utilização de redes neurais no desenvolvimento de modelos preditivos para o mercado de biodiesel pode facilitar a tomada de decisões estratégicas, como a otimização de estoques e o planejamento de investimentos, além de ajudar na adaptação às variações do mercado.
+\paragraph{} Em resumo, a aplicação de redes neurais na previsão de preços de biodiesel não só contribui para uma análise mais detalhada e precisa das variações de preços, mas também apoia a transição para fontes de energia mais sustentáveis. Dessa forma, a pesquisa contribui para uma melhor compreensão do mercado de biodiesel e para o desenvolvimento de estratégias mais eficientes que apoiem a redução das emissões de \(CO_2\) e a promoção de alternativas energéticas sustentáveis.
+
+\section{Objetivos}
+
+\paragraph{} O objetivo deste trabalho é desenvolver um modelo de previsão de preços de biodiesel usando redes neurais para fornecer uma ferramenta confiável e precisa. Essa abordagem visa antecipar variações de preços em um mercado em evolução, ajudando na otimização de decisões estratégicas e na melhoria da gestão no setor de energia renovável.
+\paragraph{} O objetivo geral é, então, desenvolver um modelo de previsão de preços de biodiesel utilizando redes neurais em um período limitado. Desta forma, tem-se como objetivos específicos: (1) realizar a coleta e análise de dados relevantes, como histórico de preços, indicadores econômicos e valores de matérias primas; (2) desenvolver um modelo de redes neurais capaz de processar esses dados e identificar padrões complexos que influenciam os preços; (3) avaliar e aprimorar o desempenho do modelo por meio de técnicas de otimização de hiperparâmetros e medidas de desempenho; (4) aplicar o modelo desenvolvido para prever os preços futuros.
+
+\section{Método}
+
+\paragraph{} O método adotado neste trabalho consiste em utilizar as séries de preços regionais do biodiesel, juntamente com outras variáveis correlatas. Essas séries temporais passam por uma análise de pré-processamento e, em seguida, são aplicados modelos de Machine Learning e Redes Neurais para realizar a modelagem e previsão dos preços nacionais do biodiesel.
+
+\paragraph{} Na análise de séries temporais considera-se que a série é composta por componentes, como heterocedasticidades, tendências, ciclos senoidais, sazonalidades e resíduos, sendo esses componentes considerados independentes uns dos outros. Assim, através da Análise de Componentes Independentes \cite{Faier11}, é realizada uma etapa de pré-processamento dos dados, que inclui a identificação e separação desses componentes. Além disso, é realizada a verificação de outliers \cite{Dantas07}, ou seja, valores discrepantes que possam afetar a qualidade e a interpretação dos dados. Essa etapa tem como objetivo obter uma série temporal mais limpa e preparar para as próximas etapas da análise e modelagem, garantindo a confiabilidade e a integridade dos dados utilizados.
+
+
+\paragraph{}Após o pré-processamento, os resíduos da série são isolados, os quais geralmente contêm ruídos e relações não lineares entre as variáveis. Para prever esses resíduos, são empregadas redes neurais e outros modelos de Machine Learning, como \ac{RW}, \ac{ARIMA}, \ac{MLP} \cite{haykin2009neural}, \ac{NARX} \cite{haykin1998neural}, \ac{DA-RNN} \cite{zheng2017forecasting}, \ac{IMP} \cite{araujo_morphological_2012}, \ac{IDLN} \cite{Araujo16}, \ac{N-Linear} \cite{DLinear22} e \ac{NHiTS} \cite{NHiTS22}.
+
+\paragraph{}Para o ajuste das redes neurais, são utilizadas medidas de desempenho como \ac{MAPE}, \ac{SLE}, \ac{MAE}, \ac{MSE} e \ac{RMSE}, em conjunto com algoritmos de otimização e ajuste de hiperparâmetros, como GridSearch, RayTune \cite{RayTune18} e Optuna \cite{optuna_2019}, para determinar a melhor arquitetura da rede e obter o melhor ajuste possível. Também são aplicados algoritmos para escolha das principais variáveis, como Matriz de Correlação.
+
+\paragraph{} O êxito deste trabalho está centrado no pré-processamento dos dados e na definição da melhor arquitetura para a rede neural, com o objetivo de minimizar os erros e o custo computacional envolvido. As séries utilizadas no treinamento da rede neural são obtidas a partir de bancos de dados de domínio público, garantindo a disponibilidade e confiabilidade das informações utilizadas.
+
+\section{Materiais}
+
+\begin{itemize}
+	\item Cluster do \ac{LPS}, preferencialmente com \ac{GPU};
+	\item Python 3.12.4 (\ac{OSI}): \begin{itemize}
+		      \item JupyterLab 4.2.2;
+		      \item \ac{CUDA} 12.2;
+		      \item Pytorch 2.3.1;
+		      \item Darts 0.30.0.
+	      \end{itemize}
+	\item Docker (\ac{OSI});
+	\item Séries temporais do histórico de preços: \begin{itemize}
+		      \item Biodiesel nacional e regionais;
+		      \item Óleo de Soja atual e futuro.
+	      \end{itemize}
+\end{itemize}
+
+\section{Estrutura do Trabalho}
+
+\paragraph{} O presente trabalho está organizado em 7 capítulos, conforme a seguir:
+\paragraph{} \textbf{Capítulo 1 - Introdução: } Reponsável por contextualizar o tema, delimitar o problema, justificar a pesquisa, apresentar os objetivos e o método adotado.
+\paragraph{} \textbf{Capítulo 2 - O Biodiesel: } Apresenta uma visão geral sobre o biodiesel, sua importância e impacto no mercado de energia, bem como os desafios e oportunidades associados a esse biocombustível.
+\paragraph{} \textbf{Capítulo 3 - Redes Neurais Artificiais: } Introduz as redes neurais artificiais, explicando seus fundamentos teóricos, arquiteturas mais comuns, funcionamento e o processo de aprendizagem, destacando seu uso em problemas de predição e classificação.
+\paragraph{} \textbf{Capítulo 4 - Previsão de Séries Temporais: } Discute os conceitos e técnicas de previsão de séries temporais, destacando a importância da análise de dados e modelagem para antecipar eventos futuros.
+\paragraph{} \textbf{Capítulo 5 - Descrição do Método: } Apresenta o método adotado para desenvolver o modelo de previsão de preços de biodiesel, incluindo a coleta e análise de dados, o pré-processamento das séries temporais, a modelagem com redes neurais e a avaliação do desempenho do modelo.
+\paragraph{} \textbf{Capítulo 6 - Resultados : } Apresenta os resultados obtidos com a aplicação do modelo de previsão de preços de biodiesel, incluindo a análise dos dados, a comparação com outros modelos e a avaliação da precisão das previsões.
+\paragraph{} \textbf{Capítulo 7 - Conclusões e Trabalhos Futuros: } Apresenta as conclusões gerais da pesquisa, ressaltando a contribuição do estudo para a área de previsão de preços de biocombustíveis e redes neurais artificiais. Propõe possíveis melhorias no modelo e sugere direções para pesquisas futuras.

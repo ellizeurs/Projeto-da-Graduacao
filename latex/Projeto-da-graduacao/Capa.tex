@@ -1,0 +1,135 @@
+\newdate{currentdate}{\documentDay}{\documentMonth}{\documentYear}
+
+\newdateformat{monthyeardate}{%
+	\ifcase\THEMONTH
+	\or Janeiro%
+	\or Fevereiro%
+	\or Março%
+	\or Abril%
+	\or Maio%
+	\or Junho%
+	\or Julho%
+	\or Agosto%
+	\or Setembro%
+	\or Outubro%
+	\or Novembro%
+	\or Dezembro%
+	\fi
+	\space de \THEYEAR%
+}
+
+\includegraphics[width=0.25\textwidth]{Poli.eps}
+\vfill
+
+\begin{center}
+	\large{\MakeUppercase{\documentTitle}}\\
+	\vspace{2cm}
+	\large{\myName}\\
+\end{center}
+\vspace{3cm}
+\hspace{7cm}
+\hfill \parbox{8.0cm}{Projeto de Graduação apresentado ao Curso de Engenharia Eletrônica e de Computação da Escola Politécnica, Universidade Federal do Rio de Janeiro, como parte dos requisitos necessários à obtenção do título de Engenheiro.\\}
+\vspace{2cm}
+\hfill \parbox{8.0cm}{Orientador: \orientador} \\
+\vspace{2cm}
+\begin{center}
+	\documentPlace
+
+	\monthyeardate\displaydate{currentdate}
+
+\end{center}
+
+
+
+
+\pagebreak
+
+
+\begin{center}
+	\large{\MakeUppercase{\documentTitle}}\\
+	\vspace{1cm}
+	\large{\myName}\\
+\end{center}
+\vspace{2cm}
+PROJETO DE GRADUAÇÃO SUBMETIDO AO CORPO DOCENTE DO CURSO DE ENGENHARIA ELETRÔNICA E DE COMPUTAÇÃO DA ESCOLA POLITÉCNICA DA UNIVERSIDADE FEDERAL DO RIO DE JANEIRO COMO PARTE DOS REQUISITOS NECESSÁRIOS PARA A OBTENÇÃO DO GRAU DE ENGENHEIRO ELETRÔNICO E DE COMPUTAÇÃO
+
+\vspace{1cm}
+Autor:
+\vspace{0.5cm}
+\begin{flushright}
+    \parbox{10cm}{
+        \centering
+        \vspace{-1cm} % Ajuste o espaço entre a imagem e a linha
+        \includegraphics[height=1cm]{assinatura.png} \\ % Substitua "assinatura.png" pelo caminho da sua imagem
+        \vspace{-0.8cm} % Ajuste o espaço entre a imagem e a linha
+        \hrulefill
+
+        \vspace{-0.375cm} % Ajuste o espaço entre a linha e o texto
+        \centering{\myName}
+		\vspace{0.1cm}
+		}
+\end{flushright}
+
+
+Orientador:
+\vspace{0.5cm}
+\begin{flushright}
+	\parbox{10cm}{
+		\hrulefill
+
+		\vspace{-.375cm}
+		\centering{Prof. \orientador, D. Sc.}
+
+		\vspace{0.1cm}
+	}
+\end{flushright}
+
+Examinador:
+\vspace{0.5cm}
+\begin{flushright}
+	\parbox{10cm}{
+		\hrulefill
+
+		\vspace{-.375cm}
+		\centering{Prof. José Gabriel Rodriguez Carneiro Gomes, Ph. D.}
+
+		\vspace{0.1cm}
+	}
+\end{flushright}
+
+Examinador:
+\vspace{0.5cm}
+\begin{flushright}
+	\parbox{10cm}{
+		\hrulefill
+
+		\vspace{-.375cm}
+		\centering{Kriseida Carmen Portella Guedelha Alekseev, D. Sc.}
+
+		\vspace{0.1cm}
+	}
+\end{flushright}
+
+Examinador:
+\vspace{0.5cm}
+\begin{flushright}
+	\parbox{10cm}{
+		\hrulefill
+
+		\vspace{-.375cm}
+		\centering{Prof. Natanael Nunes de Moura Júnior, D. Sc.}
+
+		\vspace{0.1cm}
+	}
+\end{flushright}
+
+
+\vfill
+
+
+\begin{center}
+	\documentPlace
+
+	\monthyeardate\displaydate{currentdate}
+
+\end{center}

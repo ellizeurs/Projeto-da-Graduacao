@@ -1,0 +1,35 @@
+\begin{tabular}{llcccccccccccc}
+	\toprule
+	\multicolumn{2}{c}{\textbf{Modelo}} & \multicolumn{6}{c}{\textbf{Biodiesel Nacional}} & \multicolumn{6}{c}{\textbf{Biodiesel Nacional + Óleo de Soja}}                                                                                                                                                                                 \\
+	\cmidrule(lr){3-8} \cmidrule(lr){9-14}
+	                                    &                                                 & MAPE                                                           & SLE           & MSE           & RMSE          & \(U_1\)       & \(U_2\)       & MAPE          & SLE           & MSE           & RMSE          & \(U_1\)       & \(U_2\)       \\
+	\midrule
+	\multirow{2}{*}{\ac{NARX}}
+	                                    & Original                                        & 6,25                                                           & 0,32          & 0,11          & 0,33          & 0,88          & 2,44          & 2,23          & 0,05          & 0,02          & 0,13          & \textbf{0,21} & 0,59          \\
+	                                    & Sem tendência                                   & 4,97                                                           & 0,42          & 0,13          & 0,32          & 0,79          & 1,04          & 7,94          & 0,61          & 0,24          & 0,45          & 0,65          & 5,53          \\
+	\midrule
+	\multirow{2}{*}{\ac{DA-RNN}}
+	                                    & Original                                        & 3,34                                                           & 0,11          & 0,04          & 0,20          & 0,30          & 1,90          & 3,61          & 0,13          & 0,05          & 0,22          & 0,35          & 2,75          \\
+	                                    & Sem tendência                                   & 1,87                                                           & 0,03          & 0,01          & 0,10          & 0,27          & 0,64          & 5,13          & 0,31          & 0,09          & 0,30          & 0,81          & 1,48          \\
+	\midrule
+	\multirow{2}{*}{\ac{MLP}}
+	                                    & Original                                        & 3,12                                                           & 0,09          & 0,03          & 0,18          & 0,32          & 2,00          & 6,91          & 0,40          & 0,14          & 0,37          & 0,69          & 2,10          \\
+	                                    & Sem tendência                                   & 1,58                                                           & 0,02          & 0,01          & 0,09          & 0,24          & 0,21          & \textbf{1,62} & \textbf{0,02} & \textbf{0,01} & \textbf{0,09} & 0,23          & 0,52          \\
+	\midrule
+	\multirow{2}{*}{\ac{IMP}}
+	                                    & Original                                        & 5,58                                                           & 0,31          & 0,10          & 0,31          & 0,57          & 2,31          & 5,69          & 0,29          & 0,10          & 0,31          & 0,43          & 9,15          \\
+	                                    & Sem tendência                                   & 7,84                                                           & 0,90          & 0,23          & 0,48          & 1,08          & 1,15          & 3,73          & 0,13          & 0,04          & 0,20          & 0,55          & 1,70          \\
+	\midrule
+	\multirow{2}{*}{\ac{IDLN}}
+	                                    & Original                                        & 3,42                                                           & 0,10          & 0,04          & 0,19          & 0,32          & 1,08          & 7,70          & 0,85          & 0,21          & 0,46          & 0,58          & 3,23          \\
+	                                    & Sem tendência                                   & 1,66                                                           & 0,03          & 0,01          & 0,10          & 0,27          & 0,17          & 3,42          & 0,11          & 0,04          & 0,19          & 0,52          & \textbf{0,45} \\
+	\midrule
+	\multirow{2}{*}{\ac{N-Linear}}
+	                                    & Original                                        & 1,72                                                           & 0,03          & 0,01          & 0,10          & \textbf{0,16} & 0,50          & 7,73          & 0,55          & 0,18          & 0,43          & 0,81          & 2,39          \\
+	                                    & Sem tendência                                   & \textbf{1,47}                                                  & \textbf{0,02} & \textbf{0,01} & \textbf{0,09} & 0,22          & \textbf{0,10} & 4,34          & 0,21          & 0,06          & 0,25          & 0,64          & 0,70          \\
+	\midrule
+	\multirow{2}{*}{\ac{NHiTS}}
+	                                    & Original                                        & 3,98                                                           & 0,15          & 0,05          & 0,23          & 0,41          & 2,06          & 5,23          & 0,25          & 0,09          & 0,30          & 0,54          & 1,96          \\
+	                                    & Sem tendência                                   & 2,42                                                           & 0,06          & 0,02          & 0,14          & 0,39          & 0,19          & 4,42          & 0,23          & 0,07          & 0,26          & 0,77          & 0,50          \\
+	\bottomrule
+\end{tabular}

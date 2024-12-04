@@ -1,0 +1,204 @@
+\paragraph{} Séries temporais, por definição, são conjuntos ordenados de observações, onde cada observação é o valor mensurado de uma variável de interesse em intervalos de tempo específicos \cite{box2016time}. Essas observações são coletadas sequencialmente ao longo do tempo, e a análise de séries temporais envolve a modelagem e previsão dessas observações com base em padrões históricos. A estrutura fundamental de uma série temporal pode ser representada como:
+
+\begin{equation}
+	X = \{x_t \in \mathbb{R} \mid t = 1,2,3, \ldots, N\}
+\end{equation}
+
+\paragraph{} onde \( x_t \) representa o valor observado no tempo \( t \), e \( N \) é o número total de observações. As séries temporais são amplamente utilizadas para identificar tendências, sazonalidades e ciclos senoidais nos dados, bem como para fazer previsões futuras com base nesses padrões identificados. A análise de séries temporais pode envolver diversas técnicas estatísticas e de aprendizado de máquina, como modelos ARIMA, modelos de suavização exponencial, e métodos baseados em redes neurais. O objetivo é entender a dinâmica dos dados ao longo do tempo e aplicar esse entendimento para prever comportamentos futuros com o maior grau de precisão possível.
+
+\section{Métodos de Decomposição e Normalização}
+
+\subsection{Decomposição dos Dados}
+\paragraph{} A decomposição é uma técnica fundamental no processamento de séries temporais, usada para analisar e entender as diferentes componentes que constituem os dados. A decomposição permite separar uma série temporal em componentes distintas \cite{Faier11}, facilitando a análise e a modelagem. A compreensão dessas componentes pode melhorar a precisão dos modelos preditivos.
+\paragraph{} A série temporal pode ser definida como:
+\begin{equation}
+	x_t = T_t + C_t + S_t + R_t
+\end{equation}
+
+\paragraph{} onde \( x_t \) representa o valor observado da série temporal no tempo \( t \). A componente \( T_t \) refere-se à tendência, que captura a direção geral ou o padrão de longo prazo nos dados. A tendência pode ser crescente, decrescente ou constante ao longo do tempo e mostra o padrão de longo prazo dos dados. A componente \( C_t \) descreve os ciclos senoidais, que se refere às variações que ocorrem em períodos de tempo mais longos, como ciclos econômicos ou de mercado que não se repetem em intervalos fixos, mas são identificáveis ao longo de vários anos. A componente \( S_t \) corresponde à sazonalidade, que representa variações regulares e previsíveis que ocorrem em intervalos de tempo específicos e fixos, como meses ou estações do ano, refletindo padrões que se repetem regularmente e são previsíveis. Por fim, \( R_t \) é o resíduo, também conhecido como erro ou ruído, que é a parte da série temporal que não é explicada pelas outras componentes. Inclui variações aleatórias e imprevisíveis que não podem ser atribuídas à tendência, ciclos senoidais ou sazonais.
+
+\paragraph{} Compreender essas componentes é essencial para uma análise eficaz de séries temporais, pois permite identificar padrões, prever tendências futuras e ajustar modelos para melhorar sua precisão. Este capítulo explorará detalhadamente esses métodos, suas vantagens e limitações, proporcionando uma base sólida para a aplicação prática da decomposição em séries temporais.
+
+\subsubsection{Remoção de Tendência Linear}
+\paragraph{} A remoção de tendência linear (\(T_t\)) é uma técnica utilizada para eliminar a componente linear de um conjunto de dados, permitindo que outros padrões ou características dos dados se destaquem mais claramente. Isso é particularmente útil em séries temporais, onde tendências podem mascarar variações sazonais ou outros comportamentos.
+\paragraph{} Um dos métodos aplicados para remover a tendência linear é a regressão linear. Nesse processo, ajusta-se um modelo linear aos dados, representado pela equação:
+
+\begin{equation}
+	T = \alpha + \beta X
+	\label{eq:linear-regression}
+\end{equation}
+\paragraph{} onde \(T\) é o valor observado, \(X\) é a variável independente (por exemplo, o tempo), \(\alpha\) é o coeficiente linear, e \(\beta\) é o coeficiente angular que representa a inclinação da tendência. Após ajustar o modelo, a tendência linear é subtraída dos dados originais, resultando em uma série de dados sem tendência, que pode ser analisada ou processada de forma mais eficaz.
+\paragraph{} A remoção da tendência é útil em diversas aplicações, como na análise econômica e na meteorologia, onde se busca entender variações mais sutis sem a influência de uma tendência subjacente de longo prazo.
+
+\subsubsection{Remoção de Ciclos Senoidais}
+A remoção de ciclos senoidais (\(C_t\)) é uma técnica utilizada para eliminar a componente cíclica de um conjunto de dados, eliminando flutuações que ocorrem em intervalos irregulares e sem uma frequência fixa ao longo do tempo. Essas oscilações são causadas por eventos externos. Para remover a componente cíclica, são utilizadas técnicas como a decomposição clássica e
+Análise Espectral \cite{Yasin23}.
+
+\subsubsection{Remoção de Sazonalidade}
+A remoção da sazonalidade (\(S_t\)) consiste em remover flutuações regulares e repetitivas nos dados, com padrões que se repetem em determinados intervalos, como mensal, trimestral e anual \cite{Yasin23}. A sazonalidade é normalmente encontrada em combustíveis de acordo com os ciclos de oferta de matéria prima, variação da demanda e outras séries. Esta componente pode ser explicada como a variação do comportamento do consumidor e da oferta ao longo do ano.
+
+\subsubsection{Estimação dos Resíduos}
+A estimação dos resíduos (\(R_t\)) é uma etapa complexa na previsão de séries temporais. Essa componente é composta por variações não capturadas pelas remoções de tendência, ciclos senoidais e sazonalidade \cite{Yasin23}. Essa componente necessita de métodos mais avançados para estimação, para isso são usados modelos estatísticos como o \ac{ARIMA} e os modelos neurais.
+
+\subsection{Normalização dos Dados}
+\paragraph{} A normalização é um processo fundamental no pré-processamento dos dados. Os métodos de normalização ajustam os valores de um conjunto de dados para que eles sigam uma escala ou distribuição específica, o que pode melhorar o desempenho de algoritmos e facilitar a interpretação dos resultados. Este capítulo mostrará alguns dos métodos de normalização disponíveis na literatura.
+
+\subsubsection{Escalonamento Padrão}
+\paragraph{} O escalonamento padrão é uma técnica de normalização que ajusta os valores dos dados para que tenham uma média de 0 e um desvio padrão de 1. Essa abordagem é útil quando se deseja centralizar os dados e ajustar sua dispersão, o que pode melhorar o desempenho de algoritmos de aprendizado de máquina que assumem que os dados são distribuídos de forma normal \cite{vasconcelos2024_distribuicao_normal}. O processo de escalonamento é realizado pela Equação \ref{eq:standard-scaler}, onde \(X_{escalado}\) representa o valor escalonado, \(X\) é o valor original, \(\mu\) é a média do conjunto de dados, e \(\sigma\) é o desvio padrão.
+
+\begin{equation}
+	X_{escalado} = \frac{X - \mu}{\sigma}
+	\label{eq:standard-scaler}
+\end{equation}
+
+\paragraph{} Essa técnica é particularmente útil em algoritmos de aprendizado de máquina como máquinas de vetores de suporte e regressão logística, onde a escala dos dados pode impactar a eficácia do modelo e a velocidade de convergência durante o treinamento.
+
+\subsubsection{Normalização Min-Max}
+\paragraph{} A normalização Min-Max é uma técnica utilizada para ajustar os valores dos dados para um intervalo específico, geralmente entre 0 e 1. Essa abordagem é útil quando se deseja manter a relação proporcional entre os valores de entrada, mas reduzir a variação dos dados para um intervalo controlado \cite{geeksforgeeks_scaler}. O processo de normalização é feito pela Equação \ref{eq:normalization-min-max}, onde \(X_{escalado}\) representa o valor normalizado, \(X\) é o valor original, e \(min(X)\) e \(max(X)\) são os valores mínimo e máximo do conjunto de dados, respectivamente.
+
+\begin{equation}
+	X_{escalado} = \frac{X - min(X)}{max(X) - min(X)}
+	\label{eq:normalization-min-max}
+\end{equation}
+
+\paragraph{} Essa técnica é útil em métodos de aprendizado de máquina onde a escala dos dados pode influenciar o desempenho do modelo, como em redes neurais, onde variáveis em diferentes escalas podem levar a uma convergência mais lenta durante o treinamento.
+
+
+\section{Janelas Temporais}
+
+
+\paragraph{} Na maioria dos casos, as séries temporais não são estacionárias em todo o período, fatores externos podem alterar o comportamento da série ao longo do tempo, o que torna a extração de características uma tarefa complexa. De forma a minimizar o impacto dessas variações, é adotada a abordagem de janelas temporais.
+\paragraph{} A janela temporal é um subconjunto de observações da série temporal defasadas no tempo, possibilitando a extração de características necessárias para a previsão do fenômeno gerador. Diferentes tipos de janelas são utilizados, como TAKENS, SAVIT e GREEN, PI e PETERSON, TANAKA. Essas técnicas buscam identificar os retardos temporais mais relevantes para a previsão dos próximos pontos, definidas pela Equação \ref{eq:sliding_window}.
+\begin{equation}
+	\hat{y}_{t:t+h} = f(X(t,w)) + r_t
+	\label{eq:sliding_window}
+\end{equation}
+
+\paragraph{} onde \(\hat{y}_{t:t+h}\) são os valores, para o intervalo de tempo \([t + 1 : t + h]\), \(f\) é a função de
+previsão, e \(w\) é o tamanho da janela temporal. A função \(f\) representa o mapeamento entre os pontos do passado \(X(t,w)\). O termo \(r_t\) representa um termo de ruído, que tende a diminuir à medida que \(w\) aumenta \cite{Yasin23}. Desta forma, a escolha adequada do formato e do tamanho da janela temporal é uma etapa importante do processo de previsão, pois influencia diretamente na qualidade das previsões.
+
+\subsection{Janela Deslizante}
+\paragraph{} Nesta abordagem, a série temporal é subdividida em janelas de comprimento fixo (\(J\), com \(J < N\)). As janelas são deslocadas ao longo da série com um horizonte de previsão (\(H\)) que define o intervalo entre o início de uma janela e a próxima, conforme ilustrado pela Equação \ref{eq:sliding_window_def}.
+
+\begin{equation}
+	j_i = \{x_t \mid t = i, i + 1, i + 2, \ldots, i + J - 1\} \text{ para } i = 1, 1 + H, 1 + 2H, \ldots, N - J + 1
+	\label{eq:sliding_window_def}
+\end{equation}
+
+Nesta fórmula, \(j_i\) representa a \(i\)-ésima janela, que contém \(J\) observações consecutivas da série temporal, começando na posição \(i\). O parâmetro \(H\) define o deslocamento entre o início de uma janela e a próxima, e as janelas são geradas até o final da série, garantindo que cada janela tenha exatamente \(J\) observações.
+
+
+\subsection{Janela de Takens}
+\paragraph{} Nesta abordagem, a série temporal é subdividida em janelas com comprimento fixo (\(J\), com \(J < N\)). Cada janela é formada a partir de um atraso de tempo \(\tau\) entre as observações, conforme ilustrado pela Equação \ref{eq:takens_window}.
+
+\begin{equation}
+	t_i = \{x_{i + k\tau} \mid k = 0, 1, 2, \ldots, J - 1\} \text{ para } i = 1, 2, \ldots, N - J\tau
+	\label{eq:takens_window}
+\end{equation}
+
+Nesta fórmula, \(t_i\) representa a \(i\)-ésima janela, que contém \(J\) observações da série temporal, começando na posição \(i\) e com um atraso de \(\tau\) entre as observações subsequentes. O parâmetro \(i\) define a posição inicial da janela e é variado até garantir que cada janela tenha exatamente \(J\) observações, com a condição \(i \leq N - J\tau\).
+
+
+\section{Medidas de Avaliação do Modelo}
+\paragraph{} As medidas de avaliação de modelo são utilizadas para quantificar a precisão e a qualidade das previsões feitas por um modelo em relação aos valores reais observados. Essas medidas são essenciais para comparar o desempenho de diferentes modelos e para entender como eles se comportam em diferentes condições de dados.
+
+\subsection{\acf{MAPE}}
+\paragraph{} O \ac{MAPE} é uma medida que expressa o erro médio absoluto entre os valores previstos (\(p_t\)) e os valores reais (\(x_t\)) em termos percentuais \cite{oracle_mape}. Ele é definido pela Equação \ref{eq:mape}, onde \(N\) é o número total de observações. O \ac{MAPE} é útil em contextos onde a interpretação do erro em termos de percentual é mais relevante.
+
+\begin{equation}
+	MAPE = \frac{1}{N} \sum_{t=1}^{N} \left|\frac{x_t - p_t}{x_t}\right|
+	\label{eq:mape}
+\end{equation}
+\paragraph{} Uma vantagem do \ac{MAPE} é que ele é fácil de interpretar e comparar entre diferentes modelos ou datasets. No entanto, ele pode ser influenciado por valores reais (\(x_t\)) próximos de zero, o que pode resultar em valores extremamente altos para o erro percentual \cite{filho_mape}.
+
+\subsection{\acf{MSE}}
+\paragraph{} O \ac{MSE} mede o erro médio ao quadrado entre os valores previstos (\(p_t\)) e os valores reais (\(x_t\)). A fórmula é apresentada na Equação \ref{eq:mse}. O \ac{MSE} é amplamente utilizado porque penaliza erros maiores de forma mais significativa, uma vez que os erros são elevados ao quadrado \cite{datahackers_regressao}.
+\begin{equation}
+	MSE = \frac{1}{N} \sum_{t=1}^{N} (x_t - p_t)^2
+	\label{eq:mse}
+\end{equation}
+\paragraph{} Essa medida é útil quando se deseja enfatizar grandes desvios nas previsões. No entanto, ela também pode ser sensível a outliers, pois estes contribuem de forma desproporcional para o valor final do \ac{MSE}.
+
+\subsection{\acf{RMSE}}
+\paragraph{} O \ac{RMSE} é a raiz quadrada do \ac{MSE}, conforme a Equação \ref{eq:rmse}. Ele mantém as propriedades do \ac{MSE}, mas é expresso na mesma unidade dos valores originais, o que facilita a interpretação \cite{datahackers_regressao}.
+
+\begin{equation}
+	RMSE = \sqrt{\frac{1}{N} \sum_{t=1}^{N} (x_t - p_t)^2}
+	\label{eq:rmse}
+\end{equation}
+\paragraph{} O \ac{RMSE} é preferido em situações onde grandes erros são particularmente indesejáveis, e sua interpretação direta em termos das unidades dos dados originais é uma vantagem adicional.
+
+\subsection{\acf{MAE}}
+\paragraph{} O \ac{MAE} é a média dos erros absolutos entre as previsões ($p_t$) e os valores reais ($x_t$), conforme mostrado na Equação \ref{eq:mae}. O \ac{MAE} é uma medida intuitiva que mede o erro médio sem considerar a direção do erro (positivo ou negativo) \cite{datahackers_regressao}.
+
+\begin{equation}
+	MAE = \frac{1}{N} \sum_{t=1}^{N} \left|x_t - p_t\right|
+	\label{eq:mae}
+\end{equation}
+\paragraph{} Diferente do \ac{MSE} e \ac{RMSE}, o \ac{MAE} não penaliza erros grandes de forma desproporcional, o que o torna uma escolha adequada quando se deseja uma métrica de erro mais equilibrada.
+
+\subsection{\acf{THEIL}}
+\paragraph{} O índice de Theil é uma medida utilizada para avaliar a precisão das previsões de um modelo em comparação com um modelo de referência. Ele é particularmente útil para medir a qualidade das previsões em séries temporais e pode ser dividido em dois componentes: \(U_1\) e \(U_2\) \cite{theil_forecast}.
+
+\subsubsection{\(U_1\) de Theil}
+\paragraph{} A estatística \( U_1 \) do Índice de Theil avalia a precisão das previsões comparadas com um modelo de referência. A fórmula é dada por:
+
+\begin{equation}
+	U_1 = \frac{\sqrt{\frac{1}{N} \sum_{t=1}^{N} (x_t - p_t)^2}}{\sqrt{\frac{1}{N} \sum_{t=1}^{N} x_t^2} + \sqrt{\frac{1}{N} \sum_{t=1}^{N} p_t^2}}
+	\label{eq:u1-theil}
+\end{equation}
+\paragraph{} Quanto mais precisas as previsões, menor o valor da estatística \( U_1 \). A estatística \( U_1 \) é limitada entre 0 e 1, com valores mais próximos de 0 indicando maior precisão de previsão \cite{theil_forecast}.
+
+\subsubsection{\(U_2\) de Theil}
+\paragraph{} A estatística \( U_2 \) do Índice de Theil avalia o desempenho do modelo em relação ao modelo ingênuo \cite{theil_forecast}. A fórmula é dada pela equação:
+\begin{equation}
+	U_2 = \frac{\sqrt{\sum_{t=1}^{N-1} (\frac{P_{t+1} - X_{t+1}}{x_t})^2}}{\sqrt{\sum_{t=1}^{N-1} (\frac{X_{t+1} - X_{t}}{x_t})^2}}
+	\label{eq:u2-theil}
+\end{equation}
+\paragraph{} Os valores de \(U_2\) são classificados em três intervalos:
+\begin{itemize}
+	\item \(U_2 \in [0, 1)\), o modelo é melhor que o modelo ingênuo
+	\item \(U_2 \in (1, \infty)\), o modelo é pior que o modelo ingênuo
+	\item \(U_2 = 1\), o modelo é igual ao modelo ingênuo
+\end{itemize}
+
+\section{Coeficiente de Hurst}
+
+O Coeficiente de Hurst, denotado por \( H \), é uma medida estatística utilizada para analisar a long-range dependence (dependência de longo alcance) em séries temporais. Originalmente desenvolvido por Harold Edwin Hurst na década de 1950, o coeficiente é uma ferramenta fundamental na análise de dados financeiros, climatológicos e muitos outros campos onde o comportamento temporal é relevante.
+
+\subsection{Definição e Cálculo}
+
+O coeficiente de Hurst varia entre 0 e 1 e fornece informações sobre a tendência e a persistência da série temporal \cite{hurst1951}:
+
+\begin{itemize}
+	\item \( \mathbf{H} < \mathbf{0.5} \): A série temporal exibe um comportamento de média reversão, indicando que tendências altas são seguidas por tendências baixas e vice-versa.
+	\item \( \mathbf{H} = \mathbf{0.5} \): A série é considerada um \acl{RW}, onde não há dependência temporal.
+	\item \( \mathbf{H} > \mathbf{0.5} \): A série exibe um comportamento de persistência, onde altas tendências tendem a ser seguidas por altas e baixas por baixas.
+\end{itemize}
+
+Uma forma de calcular o Coeficiente de Hurst é por meio da análise de resíduo de variância (R/S). O procedimento básico envolve os seguintes passos:
+
+
+\begin{enumerate}
+	\item Calcular a média da série temporal \( X(t) \):
+	      \[
+		      \bar{X} = \frac{1}{N} \sum_{t=1}^{N} X(t)
+	      \]
+	      onde \( N \) é o número total de observações.
+	\item Calcular os desvios acumulados a partir da média:
+	      \[
+		      Y(t) = \sum_{i=1}^{t} (X(i) - \bar{X})
+	      \]
+	\item Calcular o desvio padrão dos desvios acumulados em várias escalas \( n \):
+	      \[
+		      R(n) = \max(Y(t)) - \min(Y(t))
+	      \]
+	      \[
+		      S(n) = \sqrt{\frac{1}{n} \sum_{t=1}^{n} (X(t) - \bar{X})^2}
+	      \]
+	\item Calcular o R/S:
+	      \begin{equation}
+		      R/S = \frac{R(n)}{S(n)}
+		      \label{eq:hurst}
+	      \end{equation}
+\end{enumerate}
