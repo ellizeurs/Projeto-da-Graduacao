@@ -1,0 +1,21 @@
+\addtocounter{section}{1}
+\setcounter{subsection}{1}
+% WBS
+%update values for WBS1 (progress)
+\renewcommand{\one}   {   999   } %
+\renewcommand{\two}   {   999   } %
+\renewcommand{\three} {   999   } %
+\renewcommand{\four}  {   999   } %
+\renewcommand{\five}  {   999   } %
+
+
+\ganttbar[name=A, bar inline label node/.style={right=2.5cm}, progress=\one]{Pesquisa de dados e referências}{2023-4-1}{2023-5-1} \\
+
+\ganttlinkedbar[name=B, bar inline label node/.style={right=1.5cm}, progress=\four]{Análise Preliminar dos Dados}{2023-05-1}{2023-05-15} \\
+
+\ganttlinkedbar[name=C, bar inline label node/.style={right=1.5cm}, progress=\four]{Preparação e Pré-Processamento dos Dados}{2023-05-15}{2023-07-1} \\
+
+\ganttlinkedbar[name=D, bar inline label node/.style={right=1.5cm}, progress=\four]{Desenvolvimento e treinamento do modelo de redes neurais}{2023-07-1}{2023-10-1} \\
+
+\ganttlinkedbar[name=E, bar inline label node/.style={right=1.5cm}, progress=\four]{Avaliação e otimização do modelo de redes neurais}{2023-10-1}{2023-11-15} \\
+\ganttlinkedbar[name=F, bar inline label node/.style={right=1.5cm}, progress=\four]{Validação e implantação do modelo de redes neurais}{2023-11-15}{2023-12-15} \\

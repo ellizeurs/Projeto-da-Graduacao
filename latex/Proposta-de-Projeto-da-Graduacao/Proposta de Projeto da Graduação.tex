@@ -1,0 +1,145 @@
+\documentclass[a4paper,12pt,oneside,openany]{report}	
+\input{FormatoPack}
+
+\begin{document}
+
+\begin{center}
+\textbf{UNIVERSIDADE FEDERAL DO RIO DE JANEIRO}
+\vspace{-0.2cm}
+
+\textbf{ESCOLA POLITÉCNICA}
+\vspace{-0.2cm}
+
+\textbf{DEPARTAMENTO DE ENGENHARIA ELETRÔNICA E DE COMPUTAÇÃO}
+\vspace{0.8cm}
+
+\underline{\textbf{PROPOSTA DE PROJETO DE GRADUAÇÃO}}
+
+Aluno: Ellizeu Rodrigues Sena
+\vspace{-0.2cm}
+
+ellizeurs@poli.ufrj.br
+
+Orientador: José Manoel de Seixas
+\end{center}
+
+\textbf{1. TÍTULO}
+
+Previsão da Série Temporal de Preços do Biodiesel usando Redes Neurais
+
+\vspace{0.4cm}
+\textbf{2. ÊNFASE}
+
+Computação
+
+\vspace{0.4cm}
+\textbf{3. TEMA}
+
+O tema deste trabalho é a previsão da série temporal de Preços do Biodiesel. Neste sentido, o problema é estudar o comportamento desta série e de covariáveis para desenvolver estratégias de treinamento com diferentes topologias de redes neurais.
+
+\vspace{0.4cm}
+\textbf{4. DELIMITAÇÃO}
+
+O objetivo do trabalho é prever o preço do biodiesel no Brasil por um período curto, aproximadamente 3 meses. Por se tratar de um mercado em desenvolvimento ainda não há dados suficientes para uma previsão mais longa.
+
+\vspace{0.4cm}
+\textbf{5. JUSTIFICATIVA}
+
+A previsão de preços de biodiesel é um desafio complexo devido ao seu comportamento dinâmico e às influências de fatores econômicos, ambientais e políticos nesse mercado ainda em desenvolvimento. Nesse contexto, o uso de redes neurais se mostra uma abordagem promissora para melhorar a precisão das previsões. 
+
+As redes neurais são ferramentas poderosas na previsão de séries temporais, como os preços do biodiesel, devido à sua capacidade de processar uma ampla gama de variáveis, identificar correlações não lineares e lineares e capturar relações complexas entre variáveis. Além disso, esses modelos podem se adaptar e aprender continuamente, incorporando novos dados e mudanças no mercado. Isso permite uma tomada de decisão estratégica mais informada para produtores, distribuidores, consumidores e governos, resultando em benefícios como otimização de estoques, planejamento de investimentos e escolhas conscientes de consumo. Em resumo, a aplicação de redes neurais na previsão de preços de biodiesel oferece dados precisos e contribui para uma tomada de decisão mais eficiente em um setor estratégico de energia renovável.
+
+Neste sentido, o objetivo deste trabalho é desenvolver um modelo de previsão de preços de biodiesel utilizando técnicas avançadas, como redes neurais, a fim de fornecer uma ferramenta confiável e precisa para antecipar as variações de preços nesse mercado em constante evolução. Sua originalidade reside no uso de séries regionais para prever os preços nacionais do biodiesel. Assim, a importância deste trabalho reside em sua capacidade de analisar os dados e os padrões de preços do biodiesel em diferentes regiões, com o objetivo de identificar relações e tendências comuns que possam ser aplicadas em nível nacional.
+
+\vspace{0.4cm}
+\textbf{6. OBJETIVO}
+
+O objetivo geral é, então, desenvolver um modelo de previsão de preços de biodiesel utilizando redes neurais em um período limitado. Desta forma, tem-se como objetivos específicos: (1) realizar a coleta e análise de dados relevantes, como histórico de preços, indicadores econômicos e políticas governamentais; (2) desenvolver um modelo de redes neurais capaz de processar esses dados e identificar padrões complexos que influenciam os preços; (3) avaliar e aprimorar o desempenho do modelo por meio de técnicas de otimização de hiperparâmetros e métricas de desempenho; (4) aplicar o modelo desenvolvido para prever os preços futuros.
+
+\vspace{0.4cm}
+\textbf{7. METODOLOGIA}
+
+A metodologia adotada neste trabalho consiste em utilizar as séries de preços regionais do biodiesel, juntamente com outras variáveis correlatas. Essas séries temporais passam por uma análise de pré-processamento e, em seguida, são aplicados modelos de Machine Learning e Redes Neurais para realizar a modelagem e previsão dos preços nacionais do biodiesel.
+
+Na análise de séries temporais, é considera-se que a série é composta por componentes, como heterocedasticidades, tendências, ciclos, sazonalidades e resíduos, sendo esses componentes considerados independentes uns dos outros. Assim, através da Análise de Componentes Independentes [1], é realizada uma etapa de pré-processamento dos dados, que inclui a identificação e separação desses componentes. Além disso, é realizada a verificação de outliers [2], ou seja, valores discrepantes que possam afetar a qualidade e a interpretação dos dados. Essa etapa tem como objetivo obter uma série temporal mais limpa e preparar para as próximas etapas da análise e modelagem, garantindo a confiabilidade e a integridade dos dados utilizados.
+
+Após o pré-processamento, os resíduos da série são isolados, os quais geralmente contêm ruídos e relações não lineares entre as variáveis. Para prever esses resíduos, são empregadas redes neurais e outros modelos de Machine Learning, como RW, ARIMA, MLP, NARX, IMP, SHIF, IDLN [3], D-linear e NHiTS.
+
+Para o ajuste das redes neurais, são utilizadas métricas de desempenho como Erro Percentual Absoluto Médio (MAPE), Erro Absoluto Médio (MAE) e Erro Quadrático Médio (MSE), em conjunto com algoritmos de otimização e ajuste de hiperparâmetros, como GridSearch, Ray Tune e Optuna, para determinar a melhor arquitetura da rede e obter o melhor ajuste possível. Também são aplicados algoritmos para escolha das principais variáveis, como Matriz de Correlação e Random Forest.
+
+O êxito deste trabalho está centrado no pré-processamento dos dados e na definição da melhor arquitetura para a rede neural, com o objetivo de minimizar os erros e o custo computacional envolvido. As séries utilizadas no treinamento da rede neural são obtidas a partir de bancos de dados de domínio público, garantindo a disponibilidade e confiabilidade das informações utilizadas.
+
+
+\vspace{0.4cm}
+\textbf{8. MATERIAIS}
+	
+\begin{itemize}
+      \item Computadores do Laboratório de Processamento de Sinais (LPS), preferencialmente com GPU;
+      \item Software Jupyter (open source):
+      \begin{itemize}
+          \item Python;
+          \item Bibliotecas Darts/Pytorch, Keras/Tensorflow.
+      \end{itemize}
+      \item Dados regionais e nacionais do biodiesel e da soja, e outras variáveis correlatas.
+\end{itemize}
+
+\vspace{0.4cm}
+\textbf{9. CRONOGRAMA}
+
+Apresentada graficamente conforme a Figura \ref{Fig:Cronograma}.
+
+Fase 1: Pesquisa de dados e referências
+
+Fase 2: Análise preliminar dos dados
+
+Fase 3: Pré-processamento e preparação dos dados 
+
+Fase 4: Desenvolvimento e treinamento do modelo de redes neurais 
+
+Fase 5: Avaliação e otimização do modelo 
+
+Fase 6: Validação e implantação do modelo
+
+\begin{figure}[h]
+      \centering
+      \includegraphics[width=\textwidth]{cronograma/cronograma.pdf}
+      \caption{Cronograma do Projeto}
+      \label{Fig:Cronograma}
+  \end{figure}
+  
+
+\begin{thebibliography}{}
+
+\bibitem{Faier11}FAIER, J. M. ANÁLISE DE COMPONENTES INDEPENDENTES PARA A MONITORACÃO
+DA QUALIDADE DE DADOS EM SERIES TEMPORAIS, http://pee.ufrj.br/teses/textocompleto/2011063001.pdf
+
+\bibitem{Dantas07}Augusto Cesar Heluy Dantas. Sistema de Monitoração de Qualidade de Dados, http://www.pee.ufrj.br/index.php/en/producoes-academica/teses-de-doutorado/2007/2007053001-2007053001/file
+
+\bibitem{Araujo17}R. de A. ARAÚJO. Mercado de Ações Brasileiro em Alta-Frequência: Evidências de sua Previsibilidade com Modelagem Morfológica-Linear, https://repositorio.ufpe.br/bitstream/123456789/17924/1/RicardoDeAndradeAraujo.pdf
+
+\end{thebibliography}
+
+      \vspace{2cm}
+      \noindent
+Rio de Janeiro, 02 de junho de 2023
+
+      \vspace{0.5cm}
+      \begin{flushright}
+         \parbox{10cm}{
+            \hrulefill
+
+            \vspace{-.375cm}
+            \centering{Ellizeu Rodrigues Sena - Aluno}
+
+            \vspace{0.9cm}
+            \hrulefill
+
+            \vspace{-.375cm}
+            \centering{Prof. José Manoel de Seixas, Ph. D. - Orientador}
+ 
+            \vspace{0.9cm}
+         }
+      \end{flushright}
+      \vfill
+      
+\end{document}
